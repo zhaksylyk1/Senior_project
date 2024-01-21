@@ -1,20 +1,70 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Login and Registration Page</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleForm(formId) {
+            document.getElementById('loginSection').classList.add('hidden');
+            document.getElementById('registerSection').classList.add('hidden');
+            document.getElementById(formId).classList.remove('hidden');
+        }
+    </script>
 </head>
 <body>
-    <h2>Login</h2>
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required><br>
-        <button type="submit">Login</button>
-    </form>
+    <nav class="container-fluid">
+        <ul>
+            <li><strong>MySite</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#" role="button">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <button onclick="toggleForm('loginSection')">Login</button>
+                <button onclick="toggleForm('registerSection')">Register</button>
+            </section>
+            <section id="loginSection">
+                <hgroup>
+                    <h2>Welcome Back!</h2>
+                    <h3>Login</h3>
+                </hgroup>
+                <form>
+                    <input type="text" id="username" name="username" placeholder="Username" aria-label="Username" required />
+                    <input type="password" id="password" name="password" placeholder="Password" aria-label="Password" required />
+                    <button type="submit" onclick="event.preventDefault()">Login</button>
+                </form>
+            </section>
+            <section id="registerSection" class="hidden">
+                <hgroup>
+                    <h2>New Here?</h2>
+                    <h3>Register</h3>
+                </hgroup>
+                <form>
+                    <input type="text" id="name" name="name" placeholder="Name" aria-label="Name" required />
+                    <input type="text" id="surname" name="surname" placeholder="Surname" aria-label="Surname" required />
+                    <input type="email" id="email" name="email" placeholder="Email" aria-label="Email" required />
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" aria-label="Phone Number" required />
+                    <input type="password" id="register-password" name="register-password" placeholder="Password" aria-label="Password" required />
+                    <button type="submit" onclick="event.preventDefault()">Register</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer class="container">
+        <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a></small>
+    </footer>
 </body>
 </html>
