@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<script src="{% static 'js/script.js' %}"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +11,43 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="main-container">
-        <button id="loginBtn">Login</button>
-        <button id="registerBtn">Registration</button>
+    <section class="parallax">
+        <div class="main-container">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Registration</button>
 
-        <div id="loginForm" class="form-container">
-            <h2>Login</h2>
-            <input type="text" placeholder="Login" id="loginInput">
-            <input type="password" placeholder="Password" id="passwordInput">
-            <input type="checkbox" id="togglePassword"> Show Password
-            <button onclick="login()">Login</button>
-        </div>
+            <div id="loginForm" class="form-container">
+                <h2>Login</h2>
+                <input type="text" placeholder="Login" id="loginInput">
+                <input type="password" placeholder="Password" id="passwordInput">
+                <input type="checkbox" id="togglePassword"> Show Password
+                <button onclick="login()">Login</button>
+            </div>
 
-        <div id="registerForm" class="form-container">
-            <h2>Registration</h2>
-            <!-- Registration fields go here -->
-            <button onclick="register()">Register</button>
+            <div id="registerForm" class="form-container">
+                <h2>Registration</h2>
+                <!-- Registration fields go here -->
+                <button onclick="register()">Register</button>
+            </div>
         </div>
-    </div>
-    <script src="{% static 'js/script.js' %}"></script>
+        <div class="front-layer">
+            <img src="https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/47054/article_full%401x.jpg"/>
+            <img src="https://faithinrecovery.com/wp-content/uploads/2018/02/anger.jpg"/>
+            <img src="https://t4.ftcdn.net/jpg/02/46/14/93/360_F_246149382_KHkt8Mw8pptlmVuiqmhavvHBC4SEqBu1.jpg"/>
+            <img src="https://t4.ftcdn.net/jpg/01/64/39/81/360_F_164398147_BU6nBVrw5Y6c0EysOorGufNK3mNE42I5.jpg"/>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj027qC-ccBfO-mD4lmRtInEpwjhvSGbZYiw&usqp=CAU"/>
+            <img src="https://i.pinimg.com/originals/6d/fb/56/6dfb5660c821203ebfc479951993a0a3.jpg"/>
+            <img src="https://www.cbc.ca/natureofthings/content/legacy/Universal_Expression_Sadness.jpg"/>
+        </div>
+        <div class="back-layer">
+            <img src="https://images.assetsdelivery.com/compings_v2/ocusfocus/ocusfocus1702/ocusfocus170200753.jpg"/>
+            <img src="https://i.ytimg.com/vi/UYoBi0EssLE/maxresdefault.jpg"/>
+            <img src="https://www.cbc.ca/natureofthings/content/legacy/Universal_Expression_Surprise.jpg"/>
+            <img src="https://t4.ftcdn.net/jpg/03/21/72/61/360_F_321726194_pHtxATrvAwNke9rwEEmUDVNXBIRJGefv.jpg"/>
+            <img src="https://thumbs.dreamstime.com/b/close-up-beautiful-young-red-haired-caucasian-woman-neutral-face-beautiful-eyes-looking-straight-camera-human-facial-115700633.jpg"/>
+            <img src="https://i.guim.co.uk/img/media/a7f238cb53cdc6ee1abe9748b6ee9de5ba6e2dc3/0_433_3415_4269/master/3415.jpg?width=300&quality=45&auto=format&fit=max&dpr=2&s=cf97cd46d01230c26bb9026e9a4f4c06"/>
+            <img src="https://www.verywellmind.com/thmb/gB3mImyYc7AbvqJAZ9hFzp79GNw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/happy-relaxed-man-wearing-glasses-ee2f1576532643e0845952e209bad8ee.jpg"/>
+        </div>
+    </section>
 </body>
 </html>
