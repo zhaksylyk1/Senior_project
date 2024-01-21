@@ -33,3 +33,7 @@ def my_supabase_view(request):
     return render(request, 'your_template.html', context)
 
 
+def my_view(request):
+    data = supabase.table("test_1").select("*").execute()
+    
+    return render(request, 'login.html', {"data": data})

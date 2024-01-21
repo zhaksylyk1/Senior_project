@@ -75,15 +75,25 @@ WSGI_APPLICATION = "myproject.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     "default": {
+=======
+    'default': {
+>>>>>>> 0f23b82 (Ali 1)
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'ZhaksylykAyanAli',
+<<<<<<< HEAD
         'HOST': 'db.aiwspgoyllinmfpruoii.supabase.co',
         'PORT': '5432'
+=======
+        'HOST': 'db.xmybntaahivqjueigzaa.supabase.co',
+        'PORT': '5432',
+>>>>>>> 0f23b82 (Ali 1)
     }
 }
+
 
 
 # Password validation
