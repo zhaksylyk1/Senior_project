@@ -1,70 +1,33 @@
+{% load static %}
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <title>Login and Registration Page</title>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-    <script>
-        function toggleForm(formId) {
-            document.getElementById('loginSection').classList.add('hidden');
-            document.getElementById('registerSection').classList.add('hidden');
-            document.getElementById(formId).classList.remove('hidden');
-        }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <nav class="container-fluid">
-        <ul>
-            <li><strong>MySite</strong></li>
-        </ul>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#" role="button">Contact</a></li>
-        </ul>
-    </nav>
-    <main class="container">
-        <div class="grid">
-            <section>
-                <button onclick="toggleForm('loginSection')">Login</button>
-                <button onclick="toggleForm('registerSection')">Register</button>
-            </section>
-            <section id="loginSection">
-                <hgroup>
-                    <h2>Welcome Back!</h2>
-                    <h3>Login</h3>
-                </hgroup>
-                <form>
-                    <input type="text" id="username" name="username" placeholder="Username" aria-label="Username" required />
-                    <input type="password" id="password" name="password" placeholder="Password" aria-label="Password" required />
-                    <button type="submit" onclick="event.preventDefault()">Login</button>
-                </form>
-            </section>
-            <section id="registerSection" class="hidden">
-                <hgroup>
-                    <h2>New Here?</h2>
-                    <h3>Register</h3>
-                </hgroup>
-                <form>
-                    <input type="text" id="name" name="name" placeholder="Name" aria-label="Name" required />
-                    <input type="text" id="surname" name="surname" placeholder="Surname" aria-label="Surname" required />
-                    <input type="email" id="email" name="email" placeholder="Email" aria-label="Email" required />
-                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" aria-label="Phone Number" required />
-                    <input type="password" id="register-password" name="register-password" placeholder="Password" aria-label="Password" required />
-                    <button type="submit" onclick="event.preventDefault()">Register</button>
-                </form>
-            </section>
+    <div class="main-container">
+        <button id="loginBtn">Login</button>
+        <button id="registerBtn">Registration</button>
+
+        <div id="loginForm" class="form-container">
+            <h2>Login</h2>
+            <input type="text" placeholder="Login" id="loginInput">
+            <input type="password" placeholder="Password" id="passwordInput">
+            <input type="checkbox" id="togglePassword"> Show Password
+            <button onclick="login()">Login</button>
         </div>
-    </main>
-    <footer class="container">
-        <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a></small>
-    </footer>
+
+        <div id="registerForm" class="form-container">
+            <h2>Registration</h2>
+            <!-- Registration fields go here -->
+            <button onclick="register()">Register</button>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
