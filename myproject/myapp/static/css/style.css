@@ -59,6 +59,71 @@
     overflow: hidden;
 }
 
+.Auth {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background-color: white; /* White background for the container */
+    border-radius: 15px; /* Rounded corners */
+    padding:40px 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    text-align: center;
+    z-index: 50;
+}
+
+.btn {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-rev {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.btn-rev:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 .parallax h1{
     margin: 0;
     color: #fff;
@@ -191,3 +256,66 @@
     width: 30%;
 }
 
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+
+/* ... [existing styles] ... */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border-radius: 5px;
+    position: fixed; /* Fixed position */
+    top: 50%; /* Position at the center vertically */
+    left: 50%; /* Position at the center horizontally */
+    transform: translate(-50%, -50%); /* Shift the modal to truly center it */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow for better visibility */
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
