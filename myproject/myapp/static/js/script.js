@@ -25,24 +25,24 @@
 //     // Implement registration logic
 // }
 
-const parallax = document.querySelector('.parrallax');
+const parallax = document.querySelector('.parallax');
 const front = document.querySelector('.front-layer');
 const back = document.querySelector('.back-layer');
 
 const sFront = 150;
 const sBack = 400;
-parallax.addEventListener('mousemove', e=> {
+parallax.addEventListener("mousemove", e => {
     const x = e.clientX;
     const y = e.clientY;
 
-    front.style.transform = `
-        translate(
-            ${x / sFront}%,
-            ${y / sFront}% 
-        )`;
-    back.style.transform = `
-        translate(
-            ${x / sBack}%,
-            ${y / sBack}% 
-        )`;
+    front.style.transform = `translate(${x/sFront}%,${y/sFront}%)`;
+    back.style.transform = `translate(${x/sBack}%,${y/sBack}%)`;
+
+    // front.style.
+
+    // front.style.transform = "translate(" + (x / sFront) + "%, " + (y / sFront) + "%)";
+    // back.style.transform = "translate(" + (x / sBack) + "%, " + (y / sBack) + "%)";
+    
+    // front.style.transform = "translate(${x / sFont}%, ${y / sFont}% )";
+    // back.style.transform = "translate(${x / sBack}%, ${y / sBack}% )";
 });
