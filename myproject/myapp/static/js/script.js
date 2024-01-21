@@ -35,8 +35,8 @@ parallax.addEventListener("mousemove", e => {
     const x = e.clientX;
     const y = e.clientY;
 
-    front.style.transform = `translate(${x/sFront}%,${y/sFront}%)`;
-    back.style.transform = `translate(${x/sBack}%,${y/sBack}%)`;
+    front.style.transform = `translateX(${x/sFront}%) translateY(${y/sFront}%)`;
+    back.style.transform = `translateX(${x/sBack}%) translateY(${y/sBack}%)`;
 
     // front.style.
 
