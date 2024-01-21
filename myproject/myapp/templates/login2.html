@@ -7,36 +7,32 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
-  /* Style for the parallax effect on hover */
-  .parallax-container {
-    perspective: 500px;
-  }
-  .parallax-item {
-    transform-style: preserve-3d;
+  /* Style for the parallax effect */
+  .parallax {
+    overflow: hidden;
     position: relative;
-    transition: transform 0.3s, filter 0.3s;
   }
-  .parallax-item:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
+  .parallax img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
   }
 </style>
 </head>
 <body class="bg-black">
 
-<!-- Picture gallery with parallax hover effect -->
-<div class="parallax-container flex flex-wrap justify-center gap-2 p-10">
-  <!-- Repeat this block for each picture -->
-  <div class="parallax-item">
-    <img src="https://placehold.co/150x150" alt="Placeholder image" class="w-32 h-32">
-  </div>
-  <!-- Add more images as needed -->
+<!-- Picture gallery with parallax effect -->
+<div class="parallax w-full h-screen flex justify-center items-center gap-2 p-10">
+  <!-- Repeat this block for each picture with unique IDs -->
+  <img src="https://placehold.co/150x150" alt="Placeholder image" id="parallax-img-1" class="w-32 h-32" data-speed="5">
+  <!-- Add more images with different IDs -->
 </div>
 
 <!-- Buttons for Login and Registration -->
-<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <button onclick="showModal('loginModal')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2">Login</button>
-  <button onclick="showModal('registerModal')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded m-2">Register</button>
+<div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-4">
+  <button onclick="showModal('loginModal')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login</button>
+  <button onclick="showModal('registerModal')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button>
 </div>
 
 <!-- Login Modal -->
@@ -62,6 +58,7 @@
       </div>
     </div>
   </div>
+  
 
 <!-- Registration Modal -->
 <div id="registerModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
@@ -94,6 +91,18 @@
   </div>
 
 <script>
+  // JavaScript for parallax effect
+  document.addEventListener('mousemove', parallax);
+  function parallax(e) {
+    this.querySelectorAll('.parallax img').forEach(img => {
+      const speed = img.getAttribute('data-speed');
+      const x = (window.innerWidth - e.pageX*speed)/100;
+      const y = (window.innerHeight - e.pageY*speed)/100;
+
+      img.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+  }
+
   // JavaScript functions for showing and hiding modals
   function showModal(id) {
     document.getElementById(id).classList.remove('hidden');
