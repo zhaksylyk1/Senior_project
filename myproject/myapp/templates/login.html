@@ -17,6 +17,10 @@
             <button id="loginBtn">Login</button>
             <button id="registerBtn">Registration</button>
 
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
+            {% endif %}
+
             <div id="loginForm" class="form-container">
                 <h2>Login</h2>
                 <input type="text" placeholder="Login" id="loginInput">
@@ -54,5 +58,9 @@
             <img src="https://www.verywellmind.com/thmb/gB3mImyYc7AbvqJAZ9hFzp79GNw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/happy-relaxed-man-wearing-glasses-ee2f1576532643e0845952e209bad8ee.jpg"/>
         </div>
     </section>
+
+
+
+
 </body>
 </html>
