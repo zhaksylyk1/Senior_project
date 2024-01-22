@@ -33,17 +33,21 @@
                 <button onclick="register()">Register</button>
             </div>
         </div> -->
-
-        <div class="Auth">
-            <button class="btn" onclick="showModal('loginModal')">Log in</button> <br/>
-            <button class="btn" onclick="showModal('signupModal')"> Sign in</button>
+        <div class="mp">
+            <div>
+            </div>
+            <div class="Auth">
+                <h1>Emotion Recognition</h1>
+                <button class="btn" onclick="showModal('loginModal')">Log in</button> 
+                <button class="btn" onclick="showModal('signupModal')"> Sign in</button>
+            </div>
         </div>
 
         <!-- Login Modal -->
         <div id="loginModal" class="modal hidden">
             <div class="modal-content">
                 <span class="close" onclick="hideModal('loginModal')">&times;</span>
-                <h2>Login</h2>
+                <h2 class="ls-title">Login</h2>
                 <input type="text" placeholder="Username">
                 <input type="password" placeholder="Password">
                 <button class="btn-rev">Submit</button>
@@ -55,7 +59,7 @@
         <div id="signupModal" class="modal hidden">
             <div class="modal-content">
                 <span class="close" onclick="hideModal('signupModal')">&times;</span>
-                <h2>Sign Up</h2>
+                <h2 class="ls-title">Sign Up</h2>
                 <input type="text" placeholder="Username">
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
@@ -104,15 +108,25 @@
             }
 
             function hideModal(modalId) {
-                document.getElementById(modalId).style.display = 'none';
+                var modal = document.getElementById(modalId);
+                modal.style.display = 'none';
+
+                // Clearing all input fields inside the modal
+                var inputs = modal.getElementsByTagName('input');
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].type.toLowerCase() === 'text' || inputs[i].type.toLowerCase() === 'password' || inputs[i].type.toLowerCase() === 'email') {
+                        inputs[i].value = '';
+                    }
+                }
             }
 
             // Hide modal if clicked outside of it
             window.onclick = function(event) {
                 if (event.target.classList.contains('modal')) {
-                    event.target.style.display = 'none';
+                    hideModal(event.target.id);
                 }
             }
+
 
         </script>
     </section>
