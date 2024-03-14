@@ -1,11 +1,6 @@
-/* body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body {
     margin: 0;
-} */
+}
 
 /* .main-container button {
     margin: 0;
@@ -69,9 +64,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
-    font-size: 20px;
-    border-radius: 10px; 
+    /* color: #333; */
+    /* font-size: 20px; */
+    /* border-radius: 10px;  */
     padding: 20px;
 }
 
@@ -83,9 +78,9 @@
     transform: translate(-50%,-50%);
     text-align: center;
     /* background-color: white; White background for the container */
-    border-radius: 15px; /* Rounded corners */
+    /* border-radius: 15px; */
     padding:40px 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
     text-align: center;
     z-index: 50;
 }
