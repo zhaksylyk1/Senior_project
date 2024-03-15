@@ -1,0 +1,132 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<script src="js/script.js"></script>
+<!-- <script src="{% static 'js/script.js' %}"></script> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+
+</head>
+<body>
+    <section class="parallax">
+        <!-- <div class="main-container">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Registration</button>
+
+            <div id="loginForm" class="form-container">
+                <h2>Login</h2>
+                <input type="text" placeholder="Login" id="loginInput">
+                <input type="password" placeholder="Password" id="passwordInput">
+                <input type="checkbox" id="togglePassword"> Show Password
+                <button onclick="login()">Login</button>
+            </div>
+
+            <div id="registerForm" class="form-container">
+                <h2>Registration</h2>
+                
+                <button onclick="register()">Register</button>
+            </div>
+        </div> -->
+        <div class="mp">
+            <div class="Auth">
+                <h1>Emotion Recognition</h1>
+                <button class="btn" onclick="showModal('loginModal')">Log in</button> 
+                <button class="btn" onclick="showModal('signupModal')"> Sign in</button>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" onclick="hideModal('loginModal')">&times;</span>
+                <h2 class="ls-title">Login</h2>
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button class="btn-rev">Submit</button>
+                <!-- Login form -->
+            </div>
+        </div>
+
+        <!-- Sign Up Modal -->
+        <div id="signupModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" onclick="hideModal('signupModal')">&times;</span>
+                <h2 class="ls-title">Sign Up</h2>
+                <input type="text" placeholder="Username">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button class="btn-rev">Register</button>
+                <!-- Sign-up form -->
+            </div>
+        </div>
+
+        <div class="front-layer">
+            <img src="https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/47054/article_full%401x.jpg" data-speed="4"/>
+            <img src="https://faithinrecovery.com/wp-content/uploads/2018/02/anger.jpg" data-speed="4"/>
+            <img src="https://t4.ftcdn.net/jpg/02/46/14/93/360_F_246149382_KHkt8Mw8pptlmVuiqmhavvHBC4SEqBu1.jpg" data-speed="4"/>
+            <img src="https://t4.ftcdn.net/jpg/01/64/39/81/360_F_164398147_BU6nBVrw5Y6c0EysOorGufNK3mNE42I5.jpg" data-speed="4"/>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj027qC-ccBfO-mD4lmRtInEpwjhvSGbZYiw&usqp=CAU" data-speed="4"/>
+            <img src="https://i.pinimg.com/originals/6d/fb/56/6dfb5660c821203ebfc479951993a0a3.jpg" data-speed="4"/>
+            <img src="https://www.cbc.ca/natureofthings/content/legacy/Universal_Expression_Sadness.jpg" data-speed="4"/>
+        </div>
+        <div class="back-layer">
+            <img src="https://images.assetsdelivery.com/compings_v2/ocusfocus/ocusfocus1702/ocusfocus170200753.jpg" data-speed="2"/>
+            <img src="https://i.ytimg.com/vi/UYoBi0EssLE/maxresdefault.jpg" data-speed="2"/>
+            <img src="https://www.cbc.ca/natureofthings/content/legacy/Universal_Expression_Surprise.jpg" data-speed="2"/>
+            <img src="https://t4.ftcdn.net/jpg/03/21/72/61/360_F_321726194_pHtxATrvAwNke9rwEEmUDVNXBIRJGefv.jpg" data-speed="2"/>
+            <img src="https://thumbs.dreamstime.com/b/close-up-beautiful-young-red-haired-caucasian-woman-neutral-face-beautiful-eyes-looking-straight-camera-human-facial-115700633.jpg" data-speed="2"/>
+            <img src="https://i.guim.co.uk/img/media/a7f238cb53cdc6ee1abe9748b6ee9de5ba6e2dc3/0_433_3415_4269/master/3415.jpg?width=300&quality=45&auto=format&fit=max&dpr=2&s=cf97cd46d01230c26bb9026e9a4f4c06" data-speed="2"/>
+            <img src="https://www.verywellmind.com/thmb/gB3mImyYc7AbvqJAZ9hFzp79GNw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/happy-relaxed-man-wearing-glasses-ee2f1576532643e0845952e209bad8ee.jpg" data-speed="2"/>
+        </div>
+        <script>
+            document.addEventListener('mousemove', par);
+            const sFront = 50;
+            const sBack = 150;
+            function par(e) {
+                this.querySelectorAll('.front-layer').forEach(img => {
+                const x = e.clientX;
+                const y = e.clientY;
+                img.style.transform = `translateX(${x/sFront}px) translateY(${y/sFront}px)`;
+                });
+                this.querySelectorAll('.back-layer').forEach(img => {
+                const x = e.clientX;
+                const y = e.clientY;
+                img.style.transform = `translateX(${x/sBack}px) translateY(${y/sBack}px)`;
+                });
+            }
+
+            function showModal(modalId) {
+                document.getElementById(modalId).style.display = 'block';
+            }
+
+            function hideModal(modalId) {
+                var modal = document.getElementById(modalId);
+                modal.style.display = 'none';
+
+                // Clearing all input fields inside the modal
+                var inputs = modal.getElementsByTagName('input');
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].type.toLowerCase() === 'text' || inputs[i].type.toLowerCase() === 'password' || inputs[i].type.toLowerCase() === 'email') {
+                        inputs[i].value = '';
+                    }
+                }
+            }
+
+            // Hide modal if clicked outside of it
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                    hideModal(event.target.id);
+                }
+            }
+
+
+        </script>
+    </section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    {% comment %} {% load static %} {% endcomment %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <style>
+        .video-flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        .video-section {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+        .controls-section {
+            flex-grow: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+        }
+        .video-js {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

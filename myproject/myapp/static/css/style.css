@@ -1,6 +1,18 @@
 body {
     margin: 0;
 }
+.video-container {
+    margin-bottom: 20px;
+}
+
+.video-container video {
+    max-width: 100%;
+    height: auto;
+}
+
+.video-container div {
+    margin-top: 10px;
+}
 
 /* .main-container button {
     margin: 0;

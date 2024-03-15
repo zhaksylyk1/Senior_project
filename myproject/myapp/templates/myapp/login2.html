@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Registration Page</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  /* Style for the parallax effect */
+  .parallax {
+    overflow: hidden;
+    position: relative;
+  }
+  .parallax img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+</style>
+</head>
+<body class="bg-black">
+
+<!-- Picture gallery with parallax effect -->
+<div class="parallax w-full h-screen flex justify-center items-center gap-2 p-10">
+  <!-- Repeat this block for each picture with unique IDs -->
+  <img src="https://placehold.co/150x150" alt="Placeholder image" id="parallax-img-1" class="w-32 h-32" data-speed="5">
+  <!-- Add more images with different IDs -->
+</div>
+
+<!-- Buttons for Login and Registration -->
+<div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-4">
+  <button onclick="showModal('loginModal')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login</button>
+  <button onclick="showModal('registerModal')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+      <div class="mt-3 text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+          <i class="fas fa-user text-red-600"></i>
+        </div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">Login</h3>
+        <div class="mt-2 px-7 py-3">
+          <input type="text" placeholder="Username" class="mb-3 px-3 py-2 border rounded">
+          <input type="password" placeholder="Password" class="mb-3 px-3 py-2 border rounded">
+          <div class="flex items-center mb-4">
+            <input id="show-password" type="checkbox" class="mr-2" onclick="togglePasswordVisibility()"> Show Password
+          </div>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login</button>
+        </div>
+        <div class="px-7 py-3">
+          <button onclick="hideModal('loginModal')" class="text-sm text-blue-500">Close</button>
+          <button onclick="switchModal('loginModal', 'registerModal')" class="text-sm text-blue-500 float-right">Go to Registration</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<!-- Registration Modal -->
+<div id="registerModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+      <div class="mt-3 text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+          <i class="fas fa-user-plus text-green-600"></i>
+        </div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">Registration</h3>
+        <div class="mt-2 px-7 py-3">
+          <input type="text" placeholder="Name" class="mb-3 px-3 py-2 border rounded">
+          <input type="text" placeholder="Surname" class="mb-3 px-3 py-2 border rounded">
+          <input type="email" placeholder="Email" class="mb-3 px-3 py-2 border rounded">
+          <input type="tel" placeholder="Phone Number" class="mb-3 px-3 py-2 border rounded">
+          <input type="date" placeholder="Date of Birth" class="mb-3 px-3 py-2 border rounded">
+          <select class="mb-3 px-3 py-2 border rounded">
+            <option value="" disabled selected>Sex</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button>
+        </div>
+        <div class="px-7 py-3">
+          <button onclick="hideModal('registerModal')" class="text-sm text-green-500">Close</button>
+          <button onclick="switchModal('registerModal', 'loginModal')" class="text-sm text-green-500 float-right">Go to Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // JavaScript for parallax effect
+  document.addEventListener('mousemove', parallax);
+  function parallax(e) {
+    this.querySelectorAll('.parallax img').forEach(img => {
+      const speed = img.getAttribute('data-speed');
+      const x = (window.innerWidth - e.pageX*speed)/100;
+      const y = (window.innerHeight - e.pageY*speed)/100;
+
+      img.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+  }
+
+  // JavaScript functions for showing and hiding modals
+  function showModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  function hideModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+
+  function switchModal(closeId, openId) {
+    hideModal(closeId);
+    showModal(openId);
+  }
+</script>
+
+</body>
+</html>
