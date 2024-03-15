@@ -14,7 +14,7 @@ from create_annotations import create_annotations
 
 device = torch.device('cuda') if torch.cuda.is_available() else 'cpu'
 mtcnn = MTCNN(image_size=(720, 1280), device=device)
-root = 'c:/Users/zhk27/OneDrive/Рабочий стол/em_video'
+# root = 'c:/Users/zhk27/OneDrive/Рабочий стол/em_video'
 target_time=3.6
 save_avi = True
 
@@ -22,7 +22,7 @@ def extract_audio_from_video(video_path):
     video = VideoFileClip(video_path)
     video.audio.write_audiofile(os.path.join(video_path[:-4]+'.wav'))
 
-def split_audio(start_frame, fps):
+def split_audio(start_frame, fps,root):
     for audiofile in os.listdir(root):
         if not audiofile.endswith('.wav') or 'croppad' in audiofile:
             continue
@@ -52,7 +52,7 @@ def split_audio(start_frame, fps):
         # Save the processed clip
         sf.write(audio_path[:-4] +"_"+str(start_frame)+ '_croppad.wav', y_clip, sr)
 
-def extract_fa():
+def extract_fa(root):
     for filename in os.listdir(root):
         if filename.endswith('.mp4'):
             cap = cv2.VideoCapture(os.path.join(root,filename))  
@@ -110,8 +110,8 @@ def extract_fa():
                 if len(numpy_video) != 15:
                     print('Error', root, filename)   
                     
-                split_audio(all_frames_to_select[cri], fps)
-    create_annotations()
+                split_audio(all_frames_to_select[cri], fps,root)
+    create_annotations(root)
                 
                 
 

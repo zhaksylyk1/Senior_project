@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login
 from .supabase_client import supabase
 from .forms import VideoForm
 from .models import Video
-# from multimodal 
+from multimodal.prediction import prediction
 
 def login_view(request):
     if request.method == 'POST':
@@ -51,14 +51,17 @@ def my_supabase_view(request):
 
 def video_list(request):
     if request.method == 'POST':
+        time_points=[]
         form = VideoForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            saved_video=form.save()
+            time_points=prediction(saved_video.video_file.path)
             return redirect('video_list')
     else:
         form = VideoForm()
+        time_points=[]
     videos = Video.objects.all()  # Fetch all video objects from the database
-    time_points = [('Intro', 10, 30), ('Middle', 30, 45), ('End', 45, 47)]
+    # time_points = [('Intro', 10, 30), ('Middle', 30, 45), ('End', 45, 47)]
     videos_exist = videos.exists()
     return render(request, 'myapp/video_list.html', {'videos': videos, 'time_points': time_points, 'form': form, 'videos_exist': videos_exist})
 

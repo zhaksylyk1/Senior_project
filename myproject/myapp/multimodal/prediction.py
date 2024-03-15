@@ -110,8 +110,8 @@ def get_test_set(opt, spatial_transform=None, audio_transform=None):
         spatial_transform=spatial_transform, data_type='audiovisual',audio_transform=audio_transform)
     return test_data
 
-def prediction():
-    extract_fa()
+def prediction(root):
+    extract_fa(root)
 
     opt = parse_opts()
 
